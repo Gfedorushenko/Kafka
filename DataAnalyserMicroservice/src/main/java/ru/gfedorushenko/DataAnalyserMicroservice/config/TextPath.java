@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public final class TextPath {
+
     private final XML xml;
     private final String node;
 
@@ -14,6 +15,6 @@ public final class TextPath {
                 .get(0)
                 .xpath("text()")
                 .get(0);
-
     }
+
 }

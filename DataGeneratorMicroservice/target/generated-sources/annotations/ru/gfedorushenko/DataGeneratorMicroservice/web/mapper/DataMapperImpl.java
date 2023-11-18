@@ -7,7 +7,7 @@ import ru.gfedorushenko.DataGeneratorMicroservice.web.dto.DataDto;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2023-11-09T21:00:48+0300",
+    date = "2023-11-18T13:41:12+0300",
     comments = "version: 1.5.5.Final, compiler: javac, environment: Java 11.0.18 (Amazon.com Inc.)"
 )
 @Component

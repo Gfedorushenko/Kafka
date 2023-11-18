@@ -15,23 +15,24 @@ import java.util.Map;
 
 @Configuration
 @RequiredArgsConstructor
-public class KafcaConfig {
+public class KafkaConfig {
+
     @Value("${spring.kafka.bootstrap-servers}")
     private String servers;
 
-    @Value("$topics")
+    @Value("${topics}")
     private List<String> topics;
 
     private final XML settings;
 
     @Bean
     public Map<String, Object> receiverProperties() {
-        Map<String, Object> props = new HashMap<>(5);
+        Map<String, Object> props = new HashMap<>();
         props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, servers);
         props.put(
                 ConsumerConfig.GROUP_ID_CONFIG,
                 new TextPath(
-                        this.settings, "//groupID"
+                        this.settings, "//groupId"
                 ).toString()
         );
         props.put(
@@ -61,9 +62,11 @@ public class KafcaConfig {
                 .create(receiverProperties());
         return receiverOptions.subscription(topics)
                 .addAssignListener(partitions ->
-                        System.out.println("assigned: " + partitions))
+                        System.out.println("onPartitionAssigned: "
+                                + partitions))
                 .addRevokeListener(partitions ->
-                        System.out.println("revoked: " + partitions));
+                        System.out.println("onPartitionRevoked: "
+                                + partitions));
     }
 
     @Bean

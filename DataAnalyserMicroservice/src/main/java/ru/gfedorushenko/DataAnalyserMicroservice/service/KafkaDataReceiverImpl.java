@@ -1,5 +1,6 @@
 package ru.gfedorushenko.DataAnalyserMicroservice.service;
 
+//import com.google.gson.Gson;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import lombok.RequiredArgsConstructor;
@@ -16,7 +17,6 @@ import java.time.LocalDateTime;
 public class KafkaDataReceiverImpl implements KafkaDataReceiver {
     private final KafkaReceiver<String, Object> receiver;
     private final LocalDateTimeDeserializer localDateTimeDeserializer;
-
     private final KafkaDataService kafkaDataService;
 
     @PostConstruct
