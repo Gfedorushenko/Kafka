@@ -18,12 +18,14 @@
 
 	<properties>
 		<java.version>11</java.version>
-		<lolombok.version>1.18.28</lolombok.version>
-		<mapstruct.version>1.5.5.Final</mapstruct.version>
-		<sping-kafka.version>3.0.12</sping-kafka.version>
-		<reactor-kafka.version>1.3.21</reactor-kafka.version>
-		<jcabi-xml.version>0.29.0</jcabi-xml.version>
-		<gson.version>2.10</gson.version>
+		<lombok.version>1.18.30</lombok.version>
+		<spring-kafka.version>3.0.12</spring-kafka.version>
+		<xml.version>0.29.0</xml.version>
+		<reactor-kafka.version>1.3.22</reactor-kafka.version>
+		<gson.version>2.10.1</gson.version>
+		<postgresql.version>42.6.0</postgresql.version>
+		<liquibase.version>4.23.2</liquibase.version>
+		<reactor.version>3.5.3</reactor.version>
 	</properties>
 
 	<dependencies>
@@ -33,16 +35,27 @@
 		</dependency>
 
 		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>${postgresql.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
+			<version>${liquibase.version}</version>
+		</dependency>
+
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 			<version>${lombok.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>com.google.code.gson</groupId>
-			<artifactId>gson</artifactId>
-			<version>${gson.version}</version>
 		</dependency>
 
 		<dependency>
@@ -60,7 +73,19 @@
 		<dependency>
 			<groupId>com.jcabi</groupId>
 			<artifactId>jcabi-xml</artifactId>
-			<version>${jcabi-xml.version}</version>
+			<version>${xml.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>${gson.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-core</artifactId>
+			<version>${reactor.version}</version>
 		</dependency>
 	</dependencies>
 
